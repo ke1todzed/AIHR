@@ -8,7 +8,6 @@ from app.core.DB import AIModel
 from app.models.manager import ModelManager
 
 class ModelRepository:
-    """Класс для работы с базой данных моделей"""
     def __init__(self, db: Session):
         self.db = db
 

@@ -4,7 +4,6 @@ from ..core.DB import init_db
 from ..models.Base import ModelInfo, ModelRegisterRequest, DeleteResponse
 from ..models.manager import ModelManager
 
-# Инициализация БД
 init_db()
 
 router = APIRouter()
@@ -41,7 +40,6 @@ async def delete_model(
 ):
     try:
         manager.unload_model(model_name)
-        # В реальной реализации нужно удалять из БД через репозиторий
         return DeleteResponse(
             status="success",
             message=f"Модель {model_name} удалена"

@@ -10,7 +10,7 @@ class AIModel(Base):
     name = Column(String(100), unique=True, index=True, nullable=False)
     config = Column(JSON, nullable=False)
 
-# Используем SQLite для примера. В реальности можно заменить на Postgres и т.д.
+
 DATABASE_URL = "sqlite:///./models.db"
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
