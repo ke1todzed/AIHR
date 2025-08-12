@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from pydantic import AnyUrl, Field
 from pydantic_settings import BaseSettings
 

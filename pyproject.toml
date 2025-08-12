@@ -34,13 +34,19 @@ lint.select = [
     "UP",  # pyupgrade
     "B",   # flake8-bugbear
     "Q",   # flake8-quotes
+    "C90", # mccabe complexity
 ]
+# Настройки линтера
+line-length = 120
 
 # Игнорируемые правила
 lint.ignore = ["E501"]  # Игнорировать длину строки
 
-# Настройки линтера
-line-length = 120
+# Настройки isort
+[tool.ruff.isort]
+known-first-party = ["app"]  # Наш пакет app
+required-imports = ["from __future__ import annotations"]
+
 
 # Настройки форматтера
 [tool.ruff.format]

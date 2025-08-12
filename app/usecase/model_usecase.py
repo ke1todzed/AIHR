@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from app.db.database import AIModel
 from app.dto.shemas import DeleteResponse, ModelInfo, ModelRegisterRequest
 from app.service.manager import ModelManager

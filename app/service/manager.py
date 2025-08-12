@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -45,7 +47,7 @@ class ModelManager:
         await self.session.commit()
         return True
 
-    def _convert_to_dto(self, model: AIModel) -> ModelInfo:
+    async def _convert_to_dto(self, model: AIModel) -> ModelInfo:
         return ModelInfo(
             id=model.id,
             name=model.name,
