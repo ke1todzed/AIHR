@@ -1,5 +1,4 @@
 import uvicorn
-from sqlalchemy.orm import Session
 from uvicorn import logging
 from app.api import status, predict, models
 from fastapi import FastAPI

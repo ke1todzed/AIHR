@@ -1,9 +1,12 @@
+from collections.abc import AsyncGenerator
+from typing import Annotated
+
 from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
+
 from app.db.database import get_db
 from app.service.manager import ModelManager
-from app.usecase.model_usecase import RegisterModelUseCase, ListModelsUseCase, DeleteModelUseCase
-from typing import Annotated, AsyncGenerator
+from app.usecase.model_usecase import DeleteModelUseCase, ListModelsUseCase, RegisterModelUseCase
 
 AsyncSessionDep = Annotated[AsyncSession, Depends(get_db)]
 

@@ -1,8 +1,10 @@
 from typing import Annotated
-from fastapi import HTTPException, Depends, status, APIRouter
-from app.db.dependencies import get_register_use_case, get_list_use_case, get_delete_use_case
-from app.dto.shemas import ModelRegisterRequest, DeleteResponse, ModelInfo
-from app.usecase.model_usecase import RegisterModelUseCase, ListModelsUseCase, DeleteModelUseCase
+
+from fastapi import APIRouter, Depends, HTTPException, status
+
+from app.db.dependencies import get_delete_use_case, get_list_use_case, get_register_use_case
+from app.dto.shemas import DeleteResponse, ModelInfo, ModelRegisterRequest
+from app.usecase.model_usecase import DeleteModelUseCase, ListModelsUseCase, RegisterModelUseCase
 
 router = APIRouter()
 

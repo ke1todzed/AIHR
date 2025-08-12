@@ -1,6 +1,6 @@
-from app.service.manager import ModelManager
-from app.dto.shemas import ModelInfo, DeleteResponse, ModelRegisterRequest
 from app.db.database import AIModel
+from app.dto.shemas import DeleteResponse, ModelInfo, ModelRegisterRequest
+from app.service.manager import ModelManager
 
 
 class RegisterModelUseCase:

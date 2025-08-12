@@ -1,7 +1,9 @@
-from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
+
 from app.db.database import AIModel
-from app.dto.shemas import ModelRegisterRequest, ModelInfo
+from app.dto.shemas import ModelInfo, ModelRegisterRequest
+
 
 class ModelManager:
     def __init__(self, session: AsyncSession) -> None:

@@ -1,11 +1,12 @@
+from typing import Any
+
 from pydantic import BaseModel
-from typing import Dict, Any, Optional
 
 
 class ModelConfig(BaseModel):
     path: str
     model_type: str
-    parameters: Dict[str, Any]
+    parameters: dict[str, Any]
 
 class ModelRegisterRequest(BaseModel):
     name: str
@@ -16,19 +17,19 @@ class ModelInfo(BaseModel):
     name: str
     path: str
     model_type: str
-    parameters: Dict[str, Any]
+    parameters: dict[str, Any]
     is_loaded: bool
     load_count: int
-    last_used: Optional[str]
+    last_used: str | None
 
 class PredictionRequest(BaseModel):
-    input_data: Dict[str, Any]
+    input_data: dict[str, Any]
 
 class PredictionResponse(BaseModel):
     model: str
     prediction: Any
     status: str
-    config: Dict[str, Any]
+    config: dict[str, Any]
 
 class DeleteResponse(BaseModel):
     status: str

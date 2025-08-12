@@ -1,5 +1,6 @@
+from pydantic import AnyUrl, Field
 from pydantic_settings import BaseSettings
-from pydantic import Field, AnyUrl
+
 
 class Settings(BaseSettings):
     database_url: AnyUrl = Field(..., env="DATABASE_URL")

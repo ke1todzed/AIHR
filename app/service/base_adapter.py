@@ -1,6 +1,8 @@
 from abc import abstractmethod
+from typing import Any
+
 from pydantic import BaseModel
-from typing import Any, Dict
+
 
 class BaseAdapter(BaseModel):
     @abstractmethod
@@ -8,9 +10,9 @@ class BaseAdapter(BaseModel):
         pass
 
     @abstractmethod
-    async def preprocess(self, raw_input: Dict[str, Any]) -> Any:
+    async def preprocess(self, raw_input: dict[str, Any]) -> Any:
         pass
 
     @abstractmethod
-    async def postprocess(self, model_output: Any) -> Dict[str, Any]:
+    async def postprocess(self, model_output: Any) -> dict[str, Any]:
         pass
