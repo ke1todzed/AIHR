@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Coroutine
+from typing import Any
+
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -11,7 +14,7 @@ class ModelManager:
     def __init__(self, session: AsyncSession) -> None:
         self.session = session
 
-    async def register_model(self, request: ModelRegisterRequest) -> ModelInfo:
+    async def register_model(self, request: ModelRegisterRequest) -> Coroutine[Any, Any, ModelInfo]:
         # Проверка существования модели
         existing_model = await self.session.execute(
             select(AIModel).where(AIModel.name == request.name))
@@ -32,7 +35,7 @@ class ModelManager:
 
         return self._convert_to_dto(new_model)
 
-    async def get_models_list(self) -> list[ModelInfo]:
+    async def get_models_list(self) -> list[Coroutine[Any, Any, ModelInfo]]:
         result = await self.session.execute(select(AIModel))
         models = result.scalars().all()
         return [self._convert_to_dto(model) for model in models]

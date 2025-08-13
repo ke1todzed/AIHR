@@ -8,9 +8,9 @@ from app.db.database import init_db, engine
 
 app = FastAPI()
 
-app.include_router(status.router)
-app.include_router(predict.router)
-app.include_router(models.router)
+app.include_router(status.router, prefix="/status", tags=["status"])
+app.include_router(predict.router, prefix="/predict", tags=["predict"])
+app.include_router(models.router, prefix="/models", tags=["models"])
 
 logger = logging.getLogger("uvicorn")
 
@@ -25,8 +25,8 @@ async def lifespan():
     yield
 
     # Очистка при остановке
-    logger.info("Shutting down application...")
-    logger.info("Closing database connections...")
+    logger.info("Shutting down application")
+    logger.info("Closing database connections")
     await engine.dispose()
     logger.info("Application shutdown complete")
 
